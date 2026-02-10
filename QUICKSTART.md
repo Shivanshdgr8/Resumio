@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide - ResumeGenie (No Virtual Environment)
+# 🚀 Quick Start Guide - Resumio (No Virtual Environment)
 
 Simple instructions to run the project on Windows **without using a virtual environment**.
 
@@ -17,7 +17,7 @@ Open a **PowerShell** terminal and run:
 
 ```powershell
 # Navigate to backend directory
-cd E:\ResumeGenie\backend
+cd E:\Resumio\backend
 
 # Run the backend server directly
 python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
@@ -41,7 +41,7 @@ Open a **NEW PowerShell** terminal (keep backend running) and run:
 
 ```powershell
 # Navigate to frontend directory
-cd E:\ResumeGenie\frontend
+cd E:\resumio\frontend
 
 # Start frontend development server
 npm run dev
@@ -60,26 +60,26 @@ VITE v7.2.2  ready in XXX ms
 
 1. Open your browser
 2. Go to: **http://localhost:5173**
-3. You should see the ResumeGenie landing page!
+3. You should see the Resumio landing page!
 
 ### Step 4: Verify Everything Works
 
 - ✅ Backend health check: http://localhost:8000/api/health
   - Should return: `{"status":"ok","env":"dev","db":true}`
 - ✅ Frontend: http://localhost:5173
-  - Should show the ResumeGenie landing page
+  - Should show the Resumio landing page
 
 ## 🛠️ Quick Commands Reference
 
 ### Backend (Terminal 1)
 ```powershell
-cd E:\ResumeGenie\backend
+cd E:\Resumio\backend
 python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### Frontend (Terminal 2)
 ```powershell
-cd E:\ResumeGenie\frontend
+cd E:\Resumio\frontend
 npm run dev
 ```
 
@@ -94,13 +94,13 @@ npm run dev
 
 - **Module not found error?** Install dependencies:
   ```powershell
-  cd E:\ResumeGenie\backend
+  cd E:\Resumio\backend
   pip install -r requirements.txt
   ```
 
 - **MongoDB connection error?** Test your connection:
   ```powershell
-  cd E:\ResumeGenie\backend
+  cd E:\Resumio\backend
   python test_mongodb_connection.py
   ```
 
@@ -109,7 +109,7 @@ npm run dev
 
 - **Module not found error?** Install dependencies:
   ```powershell
-  cd E:\ResumeGenie\frontend
+  cd E:\Resumio\frontend
   npm install
   ```
 

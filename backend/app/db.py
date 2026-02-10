@@ -68,13 +68,13 @@ async def _get_database() -> Optional[AsyncIOMotorDatabase]:
     # Initialize database if not already cached
     if _database is None:
         # Extract database name from URI or use default
-        db_name = "resumegenie"
+        db_name = "resumio"
         if settings.MONGODB_URI and "/" in settings.MONGODB_URI:
             parts = settings.MONGODB_URI.split("/")
             if len(parts) > 3:
                 db_name = parts[-1].split("?")[0]
                 if not db_name or db_name == settings.MONGODB_URI:
-                    db_name = "resumegenie"
+                    db_name = "resumio"
         _database = _client[db_name]
     
     return _database

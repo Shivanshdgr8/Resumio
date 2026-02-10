@@ -42,7 +42,7 @@ def test_connection():
             db_name = db.name
         except Exception:
             # If no database name in URI, use default
-            db_name = "resumegenie"
+            db_name = "resumio"
             db = client[db_name]
         
         print(f"✅ Connection successful!")
@@ -82,14 +82,14 @@ def test_connection():
             print(f"\n✅ SOLUTION: Add the database name to your connection string.")
             print(f"\nExample:")
             print(f"  ❌ WRONG: mongodb+srv://user:pass@cluster.net/?retryWrites=true")
-            print(f"  ✅ RIGHT:  mongodb+srv://user:pass@cluster.net/resumegenie?retryWrites=true")
+            print(f"  ✅ RIGHT:  mongodb+srv://user:pass@cluster.net/resumio?retryWrites=true")
             print(f"\n📋 Steps to fix:")
             print(f"  1. Open backend/.env")
             print(f"  2. Find your MONGODB_URI line")
-            print(f"  3. Add '/resumegenie' before the '?' in the connection string")
-            print(f"     (or replace '/' before '?' with '/resumegenie')")
+            print(f"  3. Add '/resumio' before the '?' in the connection string")
+            print(f"     (or replace '/' before '?' with '/resumio')")
             print(f"\nExample format:")
-            print(f"  MONGODB_URI=mongodb+srv://username:password@cluster.xxxxx.mongodb.net/resumegenie?retryWrites=true&w=majority")
+            print(f"  MONGODB_URI=mongodb+srv://username:password@cluster.xxxxx.mongodb.net/resumio?retryWrites=true&w=majority")
         else:
             print(f"❌ ERROR: {error_type}: {error_msg}")
         return False

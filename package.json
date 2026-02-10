@@ -1,6 +1,7 @@
 {
-  "name": "resumegenie",
+  "name": "resumio",
   "private": true,
-  "workspaces": ["frontend"]
+  "workspaces": [
+    "frontend"
+  ]
 }
-

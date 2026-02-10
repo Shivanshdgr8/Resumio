@@ -35,7 +35,7 @@ export default function Landing() {
           Build Your Perfect Resume
         </h1>
         <p className="text-xl text-gray-600 mb-8">
-          Create professional resumes with ease using ResumeGenie
+          Create professional resumes with ease using Resumio
         </p>
         <div className="flex items-center justify-center gap-4 mb-8">
           <Link
@@ -74,9 +74,8 @@ export default function Landing() {
             <div className="space-y-2 text-left">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Status:</span>
-                <span className={`text-sm font-semibold ${
-                  healthStatus.status === 'ok' ? 'text-green-600' : 'text-red-600'
-                }`}>
+                <span className={`text-sm font-semibold ${healthStatus.status === 'ok' ? 'text-green-600' : 'text-red-600'
+                  }`}>
                   {healthStatus.status}
                 </span>
               </div>
@@ -86,9 +85,8 @@ export default function Landing() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Database:</span>
-                <span className={`text-sm font-semibold flex items-center gap-1 ${
-                  healthStatus.db ? 'text-green-600' : 'text-red-600'
-                }`}>
+                <span className={`text-sm font-semibold flex items-center gap-1 ${healthStatus.db ? 'text-green-600' : 'text-red-600'
+                  }`}>
                   {healthStatus.db ? (
                     <>
                       <CheckCircle2 size={16} />

@@ -24,98 +24,98 @@ const themes: Record<Theme, ThemeConfig> = {
   home: {
     name: 'Home',
     colors: {
-      primary: '#3b82f6',
-      secondary: '#8b5cf6',
-      accent: '#10b981',
-      dark: '#1e293b',
-      light: '#f8fafc',
-      gradient: 'from-blue-500 via-purple-500 to-green-500',
+      primary: '#4f46e5', // Indigo-600
+      secondary: '#8b5cf6', // Violet-500
+      accent: '#06b6d4', // Cyan-500
+      dark: '#1e1b4b', // Indigo-950
+      light: '#f8fafc', // Slate-50
+      gradient: 'from-indigo-600 via-violet-600 to-cyan-500',
       navbarBg: 'bg-white',
-      navbarBorder: 'border-brand-primary',
-      navbarText: 'text-gray-700',
-      navbarActive: 'from-brand-primary to-brand-secondary',
+      navbarBorder: 'border-indigo-100',
+      navbarText: 'text-slate-700',
+      navbarActive: 'from-indigo-600 to-violet-600',
     },
-    navbarStyle: 'floating', // Home: Floating glass navbar
+    navbarStyle: 'minimal',
   },
   builder: {
     name: 'Builder',
     colors: {
-      primary: '#2563eb',
-      secondary: '#1d4ed8',
-      accent: '#60a5fa',
-      dark: '#1e40af',
-      light: '#eff6ff',
-      gradient: 'from-blue-600 to-blue-800',
-      navbarBg: 'bg-gradient-to-r from-blue-50 to-indigo-50',
-      navbarBorder: 'border-blue-500',
-      navbarText: 'text-blue-900',
+      primary: '#2563eb', // Blue-600 (Royal)
+      secondary: '#4f46e5', // Indigo-600
+      accent: '#38bdf8', // Sky-400
+      dark: '#172554', // Blue-950
+      light: '#eff6ff', // Blue-50
+      gradient: 'from-blue-600 to-indigo-600',
+      navbarBg: 'bg-white',
+      navbarBorder: 'border-blue-100',
+      navbarText: 'text-slate-700',
       navbarActive: 'from-blue-600 to-indigo-600',
     },
-    navbarStyle: 'sidebar', // Builder: Sidebar-style horizontal
+    navbarStyle: 'minimal',
   },
   ats: {
     name: 'ATS Checker',
     colors: {
-      primary: '#10b981',
-      secondary: '#059669',
-      accent: '#34d399',
-      dark: '#047857',
-      light: '#ecfdf5',
-      gradient: 'from-green-500 to-emerald-600',
+      primary: '#059669', // Emerald-600
+      secondary: '#0d9488', // Teal-600
+      accent: '#34d399', // Emerald-400
+      dark: '#022c22', // Emerald-950
+      light: '#ecfdf5', // Emerald-50
+      gradient: 'from-emerald-600 to-teal-600',
       navbarBg: 'bg-white',
-      navbarBorder: 'border-green-500',
-      navbarText: 'text-gray-700',
-      navbarActive: 'from-green-500 to-emerald-500',
+      navbarBorder: 'border-emerald-100',
+      navbarText: 'text-slate-700',
+      navbarActive: 'from-emerald-600 to-teal-600',
     },
-    navbarStyle: 'circular', // ATS: Circular floating buttons
+    navbarStyle: 'minimal',
   },
   'cover-letter': {
     name: 'Cover Letter',
     colors: {
-      primary: '#a855f7',
-      secondary: '#9333ea',
-      accent: '#c084fc',
-      dark: '#7e22ce',
-      light: '#faf5ff',
-      gradient: 'from-purple-500 to-pink-500',
-      navbarBg: 'bg-gradient-to-r from-purple-50 to-pink-50',
-      navbarBorder: 'border-purple-500',
-      navbarText: 'text-purple-900',
-      navbarActive: 'from-purple-600 to-pink-600',
+      primary: '#e11d48', // Rose-600
+      secondary: '#db2777', // Pink-600
+      accent: '#fb7185', // Rose-400
+      dark: '#881337', // Rose-900
+      light: '#fff1f2', // Rose-50
+      gradient: 'from-rose-600 to-pink-600',
+      navbarBg: 'bg-white',
+      navbarBorder: 'border-rose-100',
+      navbarText: 'text-slate-700',
+      navbarActive: 'from-rose-600 to-pink-600',
     },
-    navbarStyle: 'ribbon', // Cover Letter: Elegant ribbon style
+    navbarStyle: 'minimal',
   },
   interview: {
     name: 'Interview Prep',
     colors: {
-      primary: '#f59e0b',
-      secondary: '#d97706',
-      accent: '#fbbf24',
-      dark: '#b45309',
-      light: '#fffbeb',
-      gradient: 'from-orange-500 to-red-500',
+      primary: '#d97706', // Amber-600
+      secondary: '#ea580c', // Orange-600
+      accent: '#fbbf24', // Amber-400
+      dark: '#78350f', // Amber-900
+      light: '#fffbeb', // Amber-50
+      gradient: 'from-amber-500 to-orange-600',
       navbarBg: 'bg-white',
-      navbarBorder: 'border-orange-500',
-      navbarText: 'text-gray-800',
-      navbarActive: 'from-orange-500 to-red-500',
+      navbarBorder: 'border-amber-100',
+      navbarText: 'text-slate-700',
+      navbarActive: 'from-amber-500 to-orange-600',
     },
-    navbarStyle: 'diagonal', // Interview: Bold diagonal layout
+    navbarStyle: 'minimal',
   },
   roaster: {
     name: 'Resume Roaster',
     colors: {
-      primary: '#f97316',
-      secondary: '#dc2626',
-      accent: '#fbbf24',
-      dark: '#c2410c',
-      light: '#fff7ed',
-      gradient: 'from-orange-500 to-red-600',
-      navbarBg: 'bg-gradient-to-r from-orange-50 to-red-50',
-      navbarBorder: 'border-orange-400',
-      navbarText: 'text-gray-900',
-      navbarActive: 'from-orange-500 to-red-600',
+      primary: '#c2410c', // Orange-700
+      secondary: '#b91c1c', // Red-700
+      accent: '#fdba74', // Orange-300
+      dark: '#431407', // Orange-950
+      light: '#fff7ed', // Orange-50
+      gradient: 'from-orange-600 to-red-600',
+      navbarBg: 'bg-white',
+      navbarBorder: 'border-orange-100',
+      navbarText: 'text-slate-700',
+      navbarActive: 'from-orange-600 to-red-600',
     },
-    navbarStyle: 'playful', // Roaster: Playful, fun, energetic style
+    navbarStyle: 'minimal',
   },
 }
 

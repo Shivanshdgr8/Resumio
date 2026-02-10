@@ -10,7 +10,7 @@
 ### 2. Create Database User
 - Go to **Security** → **Database Access**
 - Click **"Add New Database User"**
-- Username: `resumegenie` (or your choice)
+- Username: `resumio` (or your choice)
 - Password: Generate or create one (**save it!**)
 - Privileges: **"Read and write to any database"**
 - Click **"Add User"**
@@ -33,7 +33,7 @@
 
 Replace this line in `backend/.env`:
 ```env
-MONGODB_URI=mongodb://localhost:27017/resumegenie
+MONGODB_URI=mongodb://localhost:27017/resumio
 ```
 
 With your Atlas connection string (format below).
@@ -47,13 +47,13 @@ mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/?retryWrites=true
 
 ### What you need in backend/.env:
 ```
-MONGODB_URI=mongodb+srv://resumegenie:your-password@cluster0.xxxxx.mongodb.net/resumegenie?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://resumio:your-password@cluster0.xxxxx.mongodb.net/resumio?retryWrites=true&w=majority
 ```
 
 **Important changes:**
-1. Replace `<username>` with your database username (e.g., `resumegenie`)
+1. Replace `<username>` with your database username (e.g., `resumio`)
 2. Replace `<password>` with your actual password
-3. **Add database name** before the `?`: change `...mongodb.net/?retryWrites` to `...mongodb.net/resumegenie?retryWrites`
+3. **Add database name** before the `?`: change `...mongodb.net/?retryWrites` to `...mongodb.net/resumio?retryWrites`
 
 ## Password Special Characters
 
@@ -104,11 +104,11 @@ This will verify:
 ## Example Complete Connection String
 
 ```env
-MONGODB_URI=mongodb+srv://resumegenie:MyP%40ssw0rd@cluster0.abc123.mongodb.net/resumegenie?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://resumio:MyP%40ssw0rd@cluster0.abc123.mongodb.net/resumio?retryWrites=true&w=majority
 ```
 
 Replace:
-- `resumegenie` → your username
+- `resumio` → your username
 - `MyP%40ssw0rd` → your password (with special chars encoded)
 - `cluster0.abc123` → your cluster address from Atlas
 

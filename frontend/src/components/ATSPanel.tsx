@@ -44,10 +44,10 @@ export default function ATSPanel() {
   return (
     <div className="bg-white rounded-lg shadow-sm p-6 space-y-4">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">ResumeGenie Score</h2>
+        <h2 className="text-2xl font-bold">Resumio Score</h2>
         {loading && <Loader2 className="animate-spin text-brand-primary" size={20} />}
       </div>
-      
+
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Job Description (optional)
@@ -77,19 +77,17 @@ export default function ATSPanel() {
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 border-2 border-brand-primary">
             <div className="flex items-center justify-between mb-3">
               <span className="text-lg font-semibold text-gray-800">Overall Score</span>
-              <span className={`text-4xl font-bold ${
-                score.score >= 80 ? 'text-green-600' :
-                score.score >= 60 ? 'text-yellow-600' : 'text-red-600'
-              }`}>
+              <span className={`text-4xl font-bold ${score.score >= 80 ? 'text-green-600' :
+                  score.score >= 60 ? 'text-yellow-600' : 'text-red-600'
+                }`}>
                 {score.score}%
               </span>
             </div>
             <div className="w-full bg-white rounded-full h-3 shadow-inner">
               <div
-                className={`h-3 rounded-full transition-all duration-500 ${
-                  score.score >= 80 ? 'bg-green-500' :
-                  score.score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
-                }`}
+                className={`h-3 rounded-full transition-all duration-500 ${score.score >= 80 ? 'bg-green-500' :
+                    score.score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                  }`}
                 style={{ width: `${score.score}%` }}
               />
             </div>

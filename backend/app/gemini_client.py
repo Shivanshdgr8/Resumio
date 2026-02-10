@@ -180,7 +180,7 @@ async def _make_gemini_http_request(
 
 async def call_gemini_api(
     prompt: str,
-    model: str = "gemini-pro",
+    model: str = "gemini-flash-latest",
     temperature: float = 0.7,
     max_tokens: int = 2048,
 ) -> str:

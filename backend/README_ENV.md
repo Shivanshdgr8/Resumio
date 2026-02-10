@@ -30,21 +30,21 @@ For production deployments on Google Cloud Platform, you can use service account
 
 1. Create a service account in Google Cloud Console:
    ```bash
-   gcloud iam service-accounts create resumegenie-gemini \
-     --display-name="ResumeGenie Gemini Service Account"
+   gcloud iam service-accounts create resumio-gemini \
+     --display-name="resumio Gemini Service Account"
    ```
 
 2. Grant necessary permissions:
    ```bash
    gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
-     --member="serviceAccount:resumegenie-gemini@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
+     --member="serviceAccount:resumio-gemini@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
      --role="roles/aiplatform.user"
    ```
 
 3. Create and download service account key:
    ```bash
    gcloud iam service-accounts keys create ./gemini-service-account.json \
-     --iam-account=resumegenie-gemini@YOUR_PROJECT_ID.iam.gserviceaccount.com
+     --iam-account=resumio-gemini@YOUR_PROJECT_ID.iam.gserviceaccount.com
    ```
 
 4. Set the environment variable in `backend/.env`:
@@ -65,7 +65,7 @@ You have two options:
 # From repo root
 docker compose up -d
 ```
-This will start MongoDB on `localhost:27017` with the database `resumegenie`.
+This will start MongoDB on `localhost:27017` with the database `resumio`.
 
 **Option B: MongoDB Atlas**
 1. Create a cluster at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)

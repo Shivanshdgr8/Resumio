@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
-from app.routers import suggest, ats, resumes, interview
+from app.routers import suggest, ats, resumes, interview, cover_letter
 from app.db import connect_to_mongo, close_mongo_connection
 
 # Configure logging
@@ -26,8 +26,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="ResumeGenie API",
-    description="API for ResumeGenie resume builder application",
+    title="Resumio API",
+    description="API for Resumio resume builder application",
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -46,13 +46,14 @@ app.include_router(suggest.router, prefix="/api/suggest", tags=["suggestions"])
 app.include_router(ats.router, prefix="/api/ats", tags=["ats"])
 app.include_router(resumes.router, prefix="/api/resumes", tags=["resumes"])
 app.include_router(interview.router, prefix="/api/interview", tags=["interview"])
+app.include_router(cover_letter.router, prefix="/api/cover-letter", tags=["cover-letter"])
 
 
 @app.get("/")
 async def root():
     """Root endpoint."""
     return {
-        "message": "ResumeGenie API",
+        "message": "Resumio API",
         "version": "1.0.0",
         "status": "running"
     }
@@ -83,4 +84,3 @@ async def health():
         "env": settings.ENV,
         "db": db_connected
     }
-

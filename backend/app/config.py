@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str = ""
     GEMINI_PROJECT_ID: str = ""
     GEMINI_LOCATION: str = "us-central1"
-    MONGODB_URI: str = "mongodb://localhost:27017/resumegenie"
+    MONGODB_URI: str = "mongodb://localhost:27017/resumio"
     JWT_SECRET: str = "change-me-later"
     
     model_config = SettingsConfigDict(

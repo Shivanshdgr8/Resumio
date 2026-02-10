@@ -1,6 +1,6 @@
-# ResumeGenie Frontend
+# Resumio Frontend
 
-The ResumeGenie frontend is a Vite-powered React 19 application written in TypeScript and styled with Tailwind CSS.
+The Resumio frontend is a Vite-powered React 19 application written in TypeScript and styled with Tailwind CSS.
 
 ## Commands
 

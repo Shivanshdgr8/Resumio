@@ -1,12 +1,12 @@
 import { useState, useRef } from 'react'
-import { FileText, CheckCircle2, AlertCircle, TrendingUp, Upload, X, Loader2, Target, Lightbulb, BarChart3 } from 'lucide-react'
+import { FileText, CheckCircle2, AlertCircle, TrendingUp, Upload, Loader2, Target, Lightbulb, BarChart3 } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { atsScoreFromFile, type ATSResponse } from '../lib/api'
 
 export default function ATSChecker() {
   const { themeConfig } = useTheme()
   const fileInputRef = useRef<HTMLInputElement>(null)
-  
+
   const [resumeFileName, setResumeFileName] = useState<string | null>(null)
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
   const [jobDescription, setJobDescription] = useState('')
@@ -37,7 +37,7 @@ export default function ATSChecker() {
     const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword']
     const validExtensions = ['pdf', 'doc', 'docx']
     const fileExtension = file.name.split('.').pop()?.toLowerCase() || ''
-    
+
     if (!validTypes.includes(file.type) && !validExtensions.includes(fileExtension)) {
       setError('Please upload a PDF or DOCX file')
       return
@@ -82,7 +82,7 @@ export default function ATSChecker() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div 
+          <div
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg transition-all duration-300"
             style={{
               background: `linear-gradient(135deg, ${themeConfig.colors.primary}, ${themeConfig.colors.secondary})`
@@ -170,8 +170,8 @@ export default function ATSChecker() {
                   placeholder="Paste the job description here for targeted ATS analysis. If left empty, we'll analyze your resume's general ATS compatibility."
                 />
                 <p className="text-xs text-gray-500 mt-2">
-                  {jobDescription.trim() 
-                    ? 'Job description will be used for keyword matching and relevance scoring.' 
+                  {jobDescription.trim()
+                    ? 'Job description will be used for keyword matching and relevance scoring.'
                     : 'Without a job description, you\'ll get a general ATS compatibility score.'}
                 </p>
               </div>
@@ -218,26 +218,24 @@ export default function ATSChecker() {
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-2 border-brand-primary">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-lg font-semibold text-gray-800">ATS Score</span>
-                    <span className={`text-5xl font-bold ${
-                      score.score >= 80 ? 'text-green-600' :
-                      score.score >= 60 ? 'text-yellow-600' : 'text-red-600'
-                    }`}>
+                    <span className={`text-5xl font-bold ${score.score >= 80 ? 'text-green-600' :
+                        score.score >= 60 ? 'text-yellow-600' : 'text-red-600'
+                      }`}>
                       {score.score}%
                     </span>
                   </div>
                   <div className="w-full bg-white rounded-full h-4 shadow-inner mb-2">
                     <div
-                      className={`h-4 rounded-full transition-all duration-500 ${
-                        score.score >= 80 ? 'bg-green-500' :
-                        score.score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
-                      }`}
+                      className={`h-4 rounded-full transition-all duration-500 ${score.score >= 80 ? 'bg-green-500' :
+                          score.score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                        }`}
                       style={{ width: `${score.score}%` }}
                     />
                   </div>
                   <p className="text-sm text-gray-600">
                     {score.score >= 80 ? 'Excellent! Your resume has a strong ATS compatibility score.' :
-                     score.score >= 60 ? 'Good! Your resume is ATS-friendly, but there\'s room for improvement.' :
-                     'Your resume needs improvement to pass ATS filters effectively.'}
+                      score.score >= 60 ? 'Good! Your resume is ATS-friendly, but there\'s room for improvement.' :
+                        'Your resume needs improvement to pass ATS filters effectively.'}
                   </p>
                 </div>
 

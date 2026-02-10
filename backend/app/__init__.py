@@ -1,2 +1,2 @@
-# ResumeGenie Backend Application
+# Resumio Backend Application
 

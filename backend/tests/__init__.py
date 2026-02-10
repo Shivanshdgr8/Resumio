@@ -1,2 +1,2 @@
-"""Test package for ResumeGenie backend."""
+"""Test package for resumio backend."""
 

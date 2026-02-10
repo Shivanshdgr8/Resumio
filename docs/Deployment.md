@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide covers deploying ResumeGenie to production environments.
+This guide covers deploying resumio to production environments.
 
 ## Table of Contents
 
@@ -74,11 +74,11 @@ gcloud services enable cloudbuild.googleapis.com
 gcloud services enable containerregistry.googleapis.com
 
 # Build the container image
-gcloud builds submit --tag gcr.io/$PROJECT_ID/resumegenie-backend
+gcloud builds submit --tag gcr.io/$PROJECT_ID/resumio-backend
 
 # Deploy to Cloud Run
-gcloud run deploy resumegenie-backend \
-  --image gcr.io/$PROJECT_ID/resumegenie-backend \
+gcloud run deploy resumio-backend \
+  --image gcr.io/$PROJECT_ID/resumio-backend \
   --platform managed \
   --region us-central1 \
   --allow-unauthenticated \
@@ -102,7 +102,7 @@ gcloud run deploy resumegenie-backend \
 echo -n "your-gemini-api-key" | gcloud secrets create gemini-api-key --data-file=-
 echo -n "your-project-id" | gcloud secrets create gemini-project-id --data-file=-
 echo -n "us-central1" | gcloud secrets create gemini-location --data-file=-
-echo -n "mongodb+srv://user:pass@cluster.mongodb.net/resumegenie" | gcloud secrets create mongodb-uri --data-file=-
+echo -n "mongodb+srv://user:pass@cluster.mongodb.net/resumio" | gcloud secrets create mongodb-uri --data-file=-
 echo -n "your-random-jwt-secret" | gcloud secrets create jwt-secret --data-file=-
 
 # Grant Cloud Run access to secrets
@@ -116,7 +116,7 @@ gcloud secrets add-iam-policy-binding gemini-api-key \
 After deployment, Cloud Run will provide a URL:
 
 ```
-https://resumegenie-backend-xxxxx-uc.a.run.app
+https://resumio-backend-xxxxx-uc.a.run.app
 ```
 
 Save this URL for frontend configuration.
@@ -127,11 +127,11 @@ For Anthos (Kubernetes-based) deployments:
 
 ```bash
 # Build image (same as above)
-gcloud builds submit --tag gcr.io/$PROJECT_ID/resumegenie-backend
+gcloud builds submit --tag gcr.io/$PROJECT_ID/resumio-backend
 
 # Deploy to Anthos GKE cluster
-gcloud run deploy resumegenie-backend \
-  --image gcr.io/$PROJECT_ID/resumegenie-backend \
+gcloud run deploy resumio-backend \
+  --image gcr.io/$PROJECT_ID/resumio-backend \
   --platform gke \
   --cluster your-cluster-name \
   --namespace default \
@@ -155,7 +155,7 @@ gcloud run deploy resumegenie-backend \
 
 1. Go to **Database Access**
 2. Create a database user:
-   - Username: `resumegenie-user` (or your choice)
+   - Username: `resumio-user` (or your choice)
    - Password: Generate a secure password
    - Database User Privileges: `Read and write to any database`
 
@@ -174,12 +174,12 @@ gcloud run deploy resumegenie-backend \
    ```
    mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/<dbname>?retryWrites=true&w=majority
    ```
-4. Replace `<username>`, `<password>`, and `<dbname>` (use `resumegenie`)
+4. Replace `<username>`, `<password>`, and `<dbname>` (use `resumio`)
 
 #### Step 5: Store in Secret Manager (GCP)
 
 ```bash
-echo -n "mongodb+srv://resumegenie-user:password@cluster0.xxxxx.mongodb.net/resumegenie?retryWrites=true&w=majority" | \
+echo -n "mongodb+srv://resumio-user:password@cluster0.xxxxx.mongodb.net/resumio?retryWrites=true&w=majority" | \
   gcloud secrets create mongodb-uri --data-file=-
 ```
 
@@ -189,7 +189,7 @@ For self-hosted MongoDB (e.g., on GCE):
 
 ```bash
 # Update MONGODB_URI in your deployment
-MONGODB_URI=mongodb://mongo-host:27017/resumegenie
+MONGODB_URI=mongodb://mongo-host:27017/resumio
 ```
 
 ---
@@ -233,7 +233,7 @@ npm install -g vercel
 3. Go to **Settings** → **Environment Variables**
 4. Add:
    ```
-   VITE_API_BASE_URL=https://resumegenie-backend-xxxxx-uc.a.run.app
+   VITE_API_BASE_URL=https://resumio-backend-xxxxx-uc.a.run.app
    ```
 
 #### Step 4: Deploy
@@ -274,7 +274,7 @@ Create `frontend/netlify.toml`:
 3. Go to **Site settings** → **Environment variables**
 4. Add:
    ```
-   VITE_API_BASE_URL=https://resumegenie-backend-xxxxx-uc.a.run.app
+   VITE_API_BASE_URL=https://resumio-backend-xxxxx-uc.a.run.app
    ```
 
 #### Step 4: Deploy
@@ -402,7 +402,7 @@ For other platforms (e.g., AWS Amplify, Firebase Hosting), ensure:
 ### Backend Issues
 
 **Issue:** Container fails to start
-- Check Cloud Run logs: `gcloud run services logs read resumegenie-backend`
+- Check Cloud Run logs: `gcloud run services logs read resumio-backend`
 - Verify PORT environment variable matches Dockerfile
 - Check Secret Manager permissions
 
@@ -454,7 +454,7 @@ For other platforms (e.g., AWS Amplify, Firebase Hosting), ensure:
 
 **Cloud Run Logs:**
 ```bash
-gcloud run services logs read resumegenie-backend --limit 50
+gcloud run services logs read resumio-backend --limit 50
 ```
 
 **Vercel Logs:**
@@ -467,8 +467,8 @@ gcloud run services logs read resumegenie-backend --limit 50
 
 1. **Backend Updates:**
    ```bash
-   gcloud builds submit --tag gcr.io/$PROJECT_ID/resumegenie-backend
-   gcloud run deploy resumegenie-backend --image gcr.io/$PROJECT_ID/resumegenie-backend
+   gcloud builds submit --tag gcr.io/$PROJECT_ID/resumio-backend
+   gcloud run deploy resumio-backend --image gcr.io/$PROJECT_ID/resumio-backend
    ```
 
 2. **Frontend Updates:**

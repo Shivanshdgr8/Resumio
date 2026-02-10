@@ -65,7 +65,11 @@ export const resumeSchema = z.object({
     languages: z.array(z.string()).default([]),
     certifications: z.array(z.string()).default([]),
     interests: z.array(z.string()).default([]),
-  }).default({}),
+  }).default({
+    languages: [],
+    certifications: [],
+    interests: [],
+  }),
 })
 
 export type Resume = z.infer<typeof resumeSchema>

@@ -1,8 +1,8 @@
-# ResumeGenie
+# Resumio
 
 > **Tailored resumes. Powered by AI.**
 
-Build professional, ATS-optimized resumes with AI-powered suggestions and real-time preview. ResumeGenie combines a modern React interface with FastAPI backend and Google Gemini AI to help you create standout resumes.
+Build professional, ATS-optimized resumes with AI-powered suggestions and real-time preview. Resumio combines a modern React interface with FastAPI backend and Google Gemini AI to help you create standout resumes.
 
 ---
 
@@ -29,7 +29,7 @@ Build professional, ATS-optimized resumes with AI-powered suggestions and real-t
 docker compose up -d
 ```
 
-This starts MongoDB on `localhost:27017` with the database `resumegenie`.
+This starts MongoDB on `localhost:27017` with the database `resumio`.
 
 ### 2) Backend
 
@@ -173,7 +173,7 @@ This starts a local MongoDB instance on port `27017`.
 4. Get your connection string
 5. Add to `backend/.env`:
    ```
-   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/resumegenie
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/resumio
    ```
 
 See [docs/Deployment.md](./docs/Deployment.md) for production setup details.
@@ -226,7 +226,7 @@ graph TB
 ## 📁 Project Structure
 
 ```
-resumegenie/
+resumio/
 ├── frontend/          # React frontend application
 │   ├── src/
 │   │   ├── components/    # React components
@@ -376,6 +376,6 @@ For issues, questions, or contributions, please open an issue on GitHub.
 
 **Built with ❤️ for job seekers everywhere**
 
-[⭐ Star on GitHub](https://github.com/yourusername/resumegenie) • [📖 Documentation](./docs/) • [🐛 Report Bug](https://github.com/yourusername/resumegenie/issues)
+[⭐ Star on GitHub](https://github.com/yourusername/resumio) • [📖 Documentation](./docs/) • [🐛 Report Bug](https://github.com/yourusername/resumio/issues)
 
 </div>
