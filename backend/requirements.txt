@@ -1,0 +1,27 @@
+fastapi
+uvicorn[standard]
+pydantic>=2
+pydantic-settings
+python-dotenv
+httpx
+motor
+dnspython
+certifi
+orjson
+python-multipart
+aiofiles
+aiolimiter
+requests
+email-validator
+pytest
+pytest-asyncio
+pytest-cov
+# Optional: For service account authentication (Cloud Run/Anthos)
+# google-auth
+# google-auth-oauthlib
+# google-auth-httplib2
+
+# For resume file parsing
+PyPDF2>=3.0.0
+python-docx>=1.1.0
+
