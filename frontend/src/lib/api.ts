@@ -116,11 +116,7 @@ export const generateInterviewQuestionsFromFile = async ({
   formData.append('numTechQuestions', numTechQuestions.toString());
   formData.append('numBehavioralQuestions', numBehavioralQuestions.toString());
 
-  const response = await api.post('/api/interview/generate-file', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  const response = await api.post('/api/interview/generate-file', formData);
   return response.data;
 };
 
@@ -136,11 +132,7 @@ export const atsScoreFromFile = async (file: File, jobDescription?: string): Pro
     formData.append('jobDesc', jobDescription);
   }
 
-  const response = await api.post('/api/ats/score-file', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  const response = await api.post('/api/ats/score-file', formData);
   return response.data;
 };
 
