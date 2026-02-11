@@ -9,6 +9,30 @@ from app.db import connect_to_mongo, close_mongo_connection
 
 # ... (logging setup)
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    await connect_to_mongo()
+    yield
+    # Shutdown
+    await close_mongo_connection()
+
+app = FastAPI(
+    title="Resumio API",
+    version="1.0.0",
+    lifespan=lifespan
+)
+
+# CORS Middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_origins_list,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Include routers under /api prefix
 app.include_router(suggest.router, prefix="/api/suggest", tags=["suggestions"])
 app.include_router(ats.router, prefix="/api/ats", tags=["ats"])
