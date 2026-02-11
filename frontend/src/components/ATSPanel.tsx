@@ -78,7 +78,7 @@ export default function ATSPanel() {
             <div className="flex items-center justify-between mb-3">
               <span className="text-lg font-semibold text-gray-800">Overall Score</span>
               <span className={`text-4xl font-bold ${score.score >= 80 ? 'text-green-600' :
-                  score.score >= 60 ? 'text-yellow-600' : 'text-red-600'
+                score.score >= 60 ? 'text-yellow-600' : 'text-red-600'
                 }`}>
                 {score.score}%
               </span>
@@ -86,7 +86,7 @@ export default function ATSPanel() {
             <div className="w-full bg-white rounded-full h-3 shadow-inner">
               <div
                 className={`h-3 rounded-full transition-all duration-500 ${score.score >= 80 ? 'bg-green-500' :
-                    score.score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                  score.score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
                   }`}
                 style={{ width: `${score.score}%` }}
               />
@@ -126,7 +126,7 @@ export default function ATSPanel() {
                 Improvement Tips
               </h3>
               <ul className="space-y-2">
-                {score.tips.map((tip, index) => (
+                {score.tips.map((tip: string, index: number) => (
                   <li key={index} className="flex items-start gap-2 text-sm text-gray-700 bg-blue-50 p-3 rounded-md">
                     <CheckCircle2 size={16} className="text-brand-primary mt-0.5 flex-shrink-0" />
                     <span>{tip}</span>
