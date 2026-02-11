@@ -44,8 +44,8 @@ export default function ExportButton({ contentRef, className = '' }: ExportButto
         return Promise.reject(new Error('Content ref element is null'))
       }
       // Check if it's the container or find it
-      const resumeContainer = element.classList.contains('resume-container') 
-        ? element 
+      const resumeContainer = element.classList.contains('resume-container')
+        ? element
         : element.querySelector('.resume-container')
       if (!resumeContainer) {
         console.error('Resume container not found in element:', element)
@@ -58,7 +58,7 @@ export default function ExportButton({ contentRef, className = '' }: ExportButto
     onAfterPrint: () => {
       setLoading(false)
     },
-    onPrintError: (error) => {
+    onPrintError: (error: any) => {
       console.error('Print error:', error)
       setLoading(false)
       alert('Failed to generate PDF. Please ensure the preview is visible.')
@@ -149,39 +149,39 @@ export default function ExportButton({ contentRef, className = '' }: ExportButto
       }
     `,
     removeAfterPrint: true,
-  })
+  } as any)
 
   const handleClick = async () => {
     setLoading(true)
-    
+
     try {
       // Wait a bit to ensure DOM is ready
       await new Promise(resolve => setTimeout(resolve, 200))
-      
+
       console.log('Export button clicked')
       console.log('contentRef.current:', contentRef.current)
-      
+
       // Wait for ref to be attached (max 2 seconds)
       let attempts = 0
       while (!contentRef.current && attempts < 20) {
         await new Promise(resolve => setTimeout(resolve, 100))
         attempts++
       }
-      
+
       if (!contentRef.current) {
         console.error('Ref is still null after waiting')
         alert('Preview not ready. Please ensure the preview is visible and try again.')
         setLoading(false)
         return
       }
-      
+
       // Debug: Log the element structure
       const element = contentRef.current
       console.log('Ref element:', element)
       console.log('Element tag:', element.tagName)
       console.log('Element classes:', element.className)
       console.log('Has resume-container class:', element.classList?.contains('resume-container'))
-      
+
       // Check if ref is on the resume-container or find it
       let resumeContainer: HTMLElement | null = null
       if (element.classList?.contains('resume-container')) {
@@ -191,7 +191,7 @@ export default function ExportButton({ contentRef, className = '' }: ExportButto
         resumeContainer = element.querySelector?.('.resume-container') as HTMLElement
         console.log('Searching for resume-container inside ref:', resumeContainer)
       }
-      
+
       if (!resumeContainer) {
         console.error('Resume container not found. Element structure:', {
           element,
@@ -205,9 +205,9 @@ export default function ExportButton({ contentRef, className = '' }: ExportButto
         setLoading(false)
         return
       }
-      
+
       console.log('Resume container found, proceeding with print:', resumeContainer)
-      
+
       // Trigger print
       // Add a small delay to ensure everything is ready
       setTimeout(() => {

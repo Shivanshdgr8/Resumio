@@ -88,7 +88,7 @@ export default function Builder() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Toolbar - Theme-aware */}
-      <div 
+      <div
         className="border-b sticky top-20 z-40 shadow-sm transition-all duration-300"
         style={{
           backgroundColor: themeConfig.colors.light,
@@ -106,7 +106,7 @@ export default function Builder() {
                 <Download size={16} />
                 Load Demo
               </button>
-              <ExportButton contentRef={previewRef} />
+              <ExportButton contentRef={previewRef as any} />
             </div>
           </div>
           <div className="pb-2">

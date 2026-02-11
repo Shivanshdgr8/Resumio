@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 import { useResumeStore } from '../../store/useResumeStore'
 import TemplateFrame from './TemplateFrame'
 
-const ClassicA = forwardRef<HTMLDivElement>((props, ref) => {
+const ClassicA = forwardRef<HTMLDivElement>((_, ref) => {
   const { resume } = useResumeStore()
   const { personal, summary, experience, education, skills, projects, achievements, extras } = resume
 
@@ -102,7 +102,7 @@ const ClassicA = forwardRef<HTMLDivElement>((props, ref) => {
               {experience.map((exp) => {
                 const bullets = parseBullets(exp.description || '')
                 const dateRange = formatDateRange(exp.startDate, exp.endDate, exp.current)
-                
+
                 return (
                   <div key={exp.id} style={{ marginBottom: '6px', position: 'relative' }}>
                     <div style={{ marginBottom: '2px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -146,7 +146,7 @@ const ClassicA = forwardRef<HTMLDivElement>((props, ref) => {
                   techStack,
                   (project.url || project.github) ? (project.url ? 'GitHub Repository' : project.github ? 'Live Dashboard' : '') : ''
                 ].filter(Boolean)
-                
+
                 return (
                   <div key={project.id} style={{ marginBottom: '6px', position: 'relative' }}>
                     <div style={{ marginBottom: '2px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -179,7 +179,7 @@ const ClassicA = forwardRef<HTMLDivElement>((props, ref) => {
             <div style={{ marginTop: '4px' }}>
               {education.map((edu) => {
                 const dateRange = formatDateRange(edu.startDate, edu.endDate)
-                
+
                 return (
                   <div key={edu.id} style={{ marginBottom: '4px' }}>
                     <div style={{ fontSize: '10px', fontWeight: '600', color: '#000000', marginBottom: '2px' }}>

@@ -1,9 +1,9 @@
 import { forwardRef } from 'react'
 import { useResumeStore } from '../../store/useResumeStore'
 import TemplateFrame from './TemplateFrame'
-import { Phone, Mail, Globe, Briefcase, GraduationCap, FileText, Lightbulb, Heart } from 'lucide-react'
+import { Phone, Briefcase, GraduationCap, FileText, Lightbulb, Heart } from 'lucide-react'
 
-const ModernB = forwardRef<HTMLDivElement>((props, ref) => {
+const ModernB = forwardRef<HTMLDivElement>((_, ref) => {
   const { resume } = useResumeStore()
   const { personal, summary, experience, education, skills, projects, achievements, extras } = resume
 
@@ -39,9 +39,9 @@ const ModernB = forwardRef<HTMLDivElement>((props, ref) => {
     <TemplateFrame ref={ref} className="w-full max-w-full resume-modern" style={{ fontFamily: 'Lato, Inter, Roboto, Calibri, Helvetica, sans-serif', userSelect: 'text', WebkitUserSelect: 'text', printColorAdjust: 'exact', WebkitPrintColorAdjust: 'exact', colorAdjust: 'exact' }}>
       <div className="resume-section" style={{ display: 'flex', minHeight: '100%', backgroundColor: colors.mainBg, userSelect: 'text', WebkitUserSelect: 'text', printColorAdjust: 'exact', WebkitPrintColorAdjust: 'exact', colorAdjust: 'exact' }}>
         {/* Left Sidebar - Dark with Yellow Accents */}
-        <div style={{ 
-          width: '35%', 
-          backgroundColor: colors.sidebarBg, 
+        <div style={{
+          width: '35%',
+          backgroundColor: colors.sidebarBg,
           color: colors.sidebarText,
           padding: '24px 20px',
           display: 'flex',
@@ -139,9 +139,9 @@ const ModernB = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
 
         {/* Right Main Content - White with Yellow Accents */}
-        <div style={{ 
-          width: '65%', 
-          backgroundColor: colors.mainBg, 
+        <div style={{
+          width: '65%',
+          backgroundColor: colors.mainBg,
           color: colors.mainText,
           padding: '24px 28px',
           display: 'flex',
@@ -174,13 +174,13 @@ const ModernB = forwardRef<HTMLDivElement>((props, ref) => {
               </div>
               <div style={{ position: 'relative', marginLeft: '10px', paddingLeft: '28px' }}>
                 {/* Timeline line */}
-                <div style={{ 
-                  position: 'absolute', 
-                  left: '4px', 
-                  top: '0', 
-                  bottom: '0', 
-                  width: '2px', 
-                  backgroundColor: colors.divider 
+                <div style={{
+                  position: 'absolute',
+                  left: '4px',
+                  top: '0',
+                  bottom: '0',
+                  width: '2px',
+                  backgroundColor: colors.divider
                 }} />
                 {experience.map((exp, idx) => {
                   const dateRange = formatDateRange(exp.startDate, exp.endDate, exp.current)
@@ -188,13 +188,13 @@ const ModernB = forwardRef<HTMLDivElement>((props, ref) => {
                   return (
                     <div key={exp.id} style={{ position: 'relative', marginBottom: idx < experience.length - 1 ? '18px' : '0' }}>
                       {/* Timeline dot */}
-                      <div style={{ 
-                        position: 'absolute', 
-                        left: '-32px', 
+                      <div style={{
+                        position: 'absolute',
+                        left: '-32px',
                         top: '4px',
-                        width: '10px', 
-                        height: '10px', 
-                        borderRadius: '50%', 
+                        width: '10px',
+                        height: '10px',
+                        borderRadius: '50%',
                         backgroundColor: '#FFD700',
                         border: `2px solid ${colors.mainBg}`,
                         zIndex: 1,

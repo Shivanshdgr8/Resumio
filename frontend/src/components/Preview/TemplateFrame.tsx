@@ -6,18 +6,19 @@ interface TemplateFrameProps {
   forPrint?: boolean
   paperSize?: 'A4' | 'Letter'
   marginSize?: 'small' | 'medium' | 'large'
+  style?: React.CSSProperties
 }
 
 const TemplateFrame = forwardRef<HTMLDivElement, TemplateFrameProps>(
-  ({ children, className = '', forPrint = false, paperSize = 'A4', marginSize = 'medium' }, ref) => {
+  ({ children, className = '', forPrint = false, paperSize = 'A4', marginSize = 'medium', style }, ref) => {
     // Print styles
     const printClasses = forPrint
       ? `resume-print-preview ${paperSize.toLowerCase()} margin-${marginSize}`
       : 'w-full p-8 print:p-0'
 
     return (
-      <div 
-        ref={ref} 
+      <div
+        ref={ref}
         className={`${printClasses} ${className} resume-container`}
         style={{
           backgroundColor: '#ffffff',
@@ -26,7 +27,8 @@ const TemplateFrame = forwardRef<HTMLDivElement, TemplateFrameProps>(
           userSelect: 'text',
           WebkitUserSelect: 'text',
           MozUserSelect: 'text',
-          msUserSelect: 'text'
+          msUserSelect: 'text',
+          ...style
         }}
       >
         <div className="resume-content" style={{ padding: '0', margin: '0', userSelect: 'text', WebkitUserSelect: 'text' }}>
@@ -40,4 +42,3 @@ const TemplateFrame = forwardRef<HTMLDivElement, TemplateFrameProps>(
 TemplateFrame.displayName = 'TemplateFrame'
 
 export default TemplateFrame
-
