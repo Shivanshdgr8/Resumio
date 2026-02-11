@@ -10,10 +10,6 @@ export const roastResume = async (file: File): Promise<RoastResponse> => {
     const formData = new FormData()
     formData.append('file', file)
 
-    const response = await axios.post(`${API_URL}/api/roaster/roast`, formData, {
-        headers: {
-            'Content-Type': 'multipart/form-data',
-        },
-    })
+    const response = await axios.post(`${API_URL}/api/roaster/roast`, formData)
     return response.data
 }
